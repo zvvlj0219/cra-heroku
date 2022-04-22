@@ -32,10 +32,3 @@ app.listen(port, () => {
   console.log(process.env.NODE_ENV)
   console.log(`Example app listening at http://localhost:${port}`)
 })
-
-// comment
-// SET NODE_ENV=production
-// set ではなく SET
-
-// commit後、yarn run ejectを実行し、ビルドの設定ファイルを生成。
-// path.jsのパスをserver直下に変更する

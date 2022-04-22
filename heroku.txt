@@ -1,0 +1,22 @@
+// comment
+// SET NODE_ENV=production
+// set ではなく SET
+
+// commit後、yarn run ejectを実行し、ビルドの設定ファイルを生成。
+// path.jsのパスをserver直下に変更する
+
+------heroku--------------
+参照 https://devcenter.heroku.com/ja/articles/getting-started-with-nodejs#-4
+
+@ procfileを定義する
+
+$ heroku login
+
+$ heroku create <app name>
+
+$ git push heroku master
+
+$ heroku open
+
+log 出力
+$ heroku logs --tail
