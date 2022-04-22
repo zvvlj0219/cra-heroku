@@ -10,6 +10,13 @@
 
 @ procfileを定義する
 
+@ static.jsonを定義する
+https://jpdebug.com/p/2328232
+
+@buildpackを導入
+$heroku buildpacks:set heroku/nodejs
+$heroku buildpacks:add https://github.com/heroku/heroku-buildpack-static.git
+
 $ heroku login
 
 $ heroku create <app name>
