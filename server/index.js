@@ -5,14 +5,17 @@ const path = require('path')
 const app = express()
 require('dotenv').config()
 
-app.use(cors())
+const corsOptions = {
+  origin: '*',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+  allowedHeaders: ['Content-Type']
+}
+app.use(cors(corsOptions))
 app.use(express.json())
 
 app.get('/app', async (req, res) => {
-  // const { data } = await axios.get('https://api.github.com/users/zvvlj0219')
-  // const { login } = data
-  // if (!login) return res.status(400).send()
-  // return res.status(200).send({ username: login})
   return res.status(200).send({ username: 'zvvlj0219'})
 })
 

@@ -1,22 +1,30 @@
 import { useEffect, useState } from 'react'
+import axios from 'axios'
 import './App.css';
 
 const url = process.env.NODE_ENV === 'production'
   ? 'https://cra-heroku-app.herokuapp.com'
   : 'http://localhost:5000'
 
+const config = {
+  headers:{  
+    "Content-Type": "application/json",
+    'Accept': 'application/json',
+  }
+}
+
 const FirstView = () => {
   const [text, setText] = useState('')
 
   const fetchUser = async () => {
-    const res = await fetch(`${url}/app`,{
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    const data = await res.json()
-    setText(data.username)
+    try {
+      const res = await axios.get(`${url}/app`, config)
+      const { data } = res
+      setText(data.username)
+    } catch (error) {
+      setText('fetch api failure')
+      console.log(error)
+    }
   }
 
   useEffect(() => {
@@ -26,12 +34,7 @@ const FirstView = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          {
-            text ?
-              `github username is ${text}` : 'fetch api failure'
-          }
-        </p>
+        <p>{ text }</p>
       </header>
     </div>
   );

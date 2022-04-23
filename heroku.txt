@@ -14,6 +14,8 @@ process.env.NODE_ENV === 'production' ==> 'https://<heroku.app>'
 
 @ procfileを定義する
 
+@ cors, axios headerなど細かい設定
+
 @ static.jsonを定義する
 https://jpdebug.com/p/2328232
 
