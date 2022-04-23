@@ -2,11 +2,15 @@ import { useEffect, useState } from 'react'
 import logo from './logo.svg';
 import './App.css';
 
+const url = process.env.NODE_ENV === 'production'
+  ? 'https://cra-heroku-app.herokuapp.com'
+  : 'http://localhost:5000'
+
 const FirstView = () => {
   const [text, setText] = useState('')
 
   const fetchUser = async () => {
-    const res = await fetch('/app',{
+    const res = await fetch(`${url}/app`,{
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
