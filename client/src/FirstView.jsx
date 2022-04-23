@@ -14,27 +14,28 @@ const config = {
 }
 
 const FirstView = () => {
-  const [text, setText] = useState('')
+  // const [text, setText] = useState('')
 
-  const fetchUser = async () => {
-    try {
-      const res = await axios.get(`${url}/app`, config)
-      const { data } = res
-      setText(data.username)
-    } catch (error) {
-      setText('fetch api failure')
-      console.log(error)
-    }
-  }
+  // const fetchUser = async () => {
+  //   try {
+  //     const res = await axios.get(`${url}/app`, config)
+  //     const { data } = res
+  //     setText(data.username)
+  //   } catch (error) {
+  //     setText('fetch api failure')
+  //     console.log(error)
+  //   }
+  // }
 
-  useEffect(() => {
-    fetchUser()
-  }, [])
+  // useEffect(() => {
+  //   fetchUser()
+  // }, [])
 
   return (
     <div className="App">
       <header className="App-header">
-        <p>{ text }</p>
+        {/* <p>{ text }</p> */}
+        <p>no api</p>
       </header>
     </div>
   );
